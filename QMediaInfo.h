@@ -14,12 +14,13 @@ public:
   bool Open(const QString& filename);
   int DurationLengthQuick(const QString& fileAbsPath);
   QList<int> batchVidsDurationLength(const QStringList& vidsAbsPath);
+  explicit operator bool() const { return isLoadDllOk(); }
 
 private:
   explicit QMediaInfo();
   QMediaInfo(const QMediaInfo& rhs) = delete;
 
-  bool isLoadDllOk() { return m_bLoadDllResult; }
+  bool isLoadDllOk() const { return m_bLoadDllResult; }
   std::unique_ptr<MediaInfoDLL::MediaInfo> m_mediaInfo;
   const bool m_bLoadDllResult;
 };
