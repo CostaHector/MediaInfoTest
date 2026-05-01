@@ -7,8 +7,8 @@ int main(int argc, char* argv[]) {
   QString audioFile{dir.absoluteFilePath(R"(download-complete.mp3)")};
 
   auto& inst = QMediaInfo::GetInst();
-  int vidDur = inst.VidDurationLengthQuick(vidFile);
-  int audDur = inst.AudDurationLengthQuick(audioFile);
+  int vidDur = inst.DurationLengthQuick(vidFile);
+  int audDur = inst.DurationLengthQuick(audioFile);
   qDebug("file[%s] duration: %d", qPrintable(vidFile), vidDur);
   qDebug("file[%s] duration: %d", qPrintable(audioFile), audDur);
   return 0;
