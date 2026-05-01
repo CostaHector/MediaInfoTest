@@ -5,9 +5,9 @@
 
 inline MediaInfoDLL::String ToMediaInfoString(const QString& qstr) {
 #if defined(UNICODE) || defined(_UNICODE)
-  return (qstr).toStdWString();
+  return qstr.toStdWString();
 #else
-  return (qstr).toStdString();
+  return qstr.toStdString();
 #endif
 }
 
@@ -34,12 +34,11 @@ constexpr const char* LIBRARY_NAME{
 QMediaInfo::QMediaInfo()
   : m_mediaInfo{new MediaInfoDLL::MediaInfo}
   , m_bLoadDllResult{QLibrary{LIBRARY_NAME}.load()} {
-  qWarning("libname[%s] load result: %d", LIBRARY_NAME, m_bLoadDllResult);
   if (m_bLoadDllResult) {
     return;
   }
-  qWarning("libname[%s] isExist[%d], isLib[%d]", //
-           LIBRARY_NAME,                         //
+  qWarning("libname[%s] load failed. isExist[%d], isLib[%d]", //
+           LIBRARY_NAME,                                      //
            QFile::exists(LIBRARY_NAME),
            QLibrary::isLibrary(LIBRARY_NAME));
 }
