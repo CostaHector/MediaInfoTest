@@ -49,7 +49,8 @@ endif()
 
 target_sources(MediaInfoTest PUBLIC
     ${HEADERS}
-    Example.ogg
+    download-complete.mp3
+    OneNoteFRE_Welcome.mp4
 )
 
 
