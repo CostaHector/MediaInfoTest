@@ -1,0 +1,7 @@
+CMakeLists.txt.user
+
+./*.json
+*.idx
+build/*
+.vscode
+
