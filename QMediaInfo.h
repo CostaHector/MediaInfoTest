@@ -12,13 +12,10 @@ class QMediaInfo {
 public:
   static QMediaInfo& GetInst();
   bool Open(const QString& filename);
-  int VidDurationLengthQuick(const QString& vidAbsPath);
-  int AudDurationLengthQuick(const QString& audioAbsPath);
+  int DurationLengthQuick(const QString& fileAbsPath);
   QList<int> batchVidsDurationLength(const QStringList& vidsAbsPath);
 
 private:
-  int DurationLengthQuick(const QString& fileAbsPath, const int streamTypeInt);
-
   explicit QMediaInfo();
   QMediaInfo(const QMediaInfo& rhs) = delete;
 
